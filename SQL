@@ -1,0 +1,58 @@
+indexing in sql 
+
+when we wanted to fetch particular row of data from very large dataset we use to use the where clause that serach the 
+element in linear fashion and take o(n) time complexiy 
+
+for sorted element we can considere the o(n) time complexity but what about when we have the larger dataset 
+so for that we will use indexing 
+
+what indexing will do?
+indexing will create a new memory for the partiuclar in sorted order and each rows value of that indexed column will point to the 
+to the value of the original table 
+
+let me create the diagram of it
+
+Name	Population	area
+A	12	100
+B	13	50
+C	9	800
+  
+Say if the query is like wanted t o know the name of whose population is very less 
+For that I’ll be using the where clause which will take o(3)
+Name	Population	area
+A
+12	100
+B
+13	50
+C
+9	800
+
+The same can be done in another way as well ,like creating the index cokumn of population
+Population
+9
+12
+13
+
+   
+Name	Population	area
+A	12	100
+B	13	50
+C	9	800
+
+
+Know when we use the where clause instead of searching to the original table it will serach on temperaray created the population table and when it got  the pointed the values will be return 
+//can we use indexing every scenario?
+No we should always use in read intensive based application 
+
+
+
+
+
+
+
+
+
+
+
+
+
