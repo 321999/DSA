@@ -1,0 +1,17 @@
+def pzae(a):
+	l=[]
+	r=[]
+	for i in a:
+	#	print(type(i))
+#		if type(i)== 'bool':
+#			print(i)
+# the line type(i) is not bool is writtain because to get the False means 0 
+#and when we say that appens the value which is zero tha fakse will also go at the end 
+		if type(i) is not bool and i==0:
+			r.append(i)
+		else:
+			l.append(i)
+	return l+r
+print(pzae([1,0,2,0,3]))
+print(pzae([0, False, 1, True, 0]))
+# Output → [1, True, 0, False, 0]
