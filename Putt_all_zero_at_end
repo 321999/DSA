@@ -15,3 +15,20 @@ def pzae(a):
 print(pzae([1,0,2,0,3]))
 print(pzae([0, False, 1, True, 0]))
 # Output → [1, True, 0, False, 0]
+
+
+
+# o(n) time complexity with o(1) space 
+# in this approach we will uses two pointer approach we will shift all non zero to left
+so that all the zero will automatically reach at the right 
+one pointer which will start from extreme left for swapping 
+amd another pointer is to check yhe non zero element ,if any nom zero element is found shift 
+that to left by swapping with write elements 
+def PutAllZeroAtEnd(a):
+	write=0
+	for read in range(len(a)):
+		 if a[read] !=0 and type(a[read]) is not bool:
+		 	a[write],a[read]=a[read],a[write]
+		 	print(a)
+		 write+=1
+print(PutAllZeroAtEnd([1,0,2,0,3]))
