@@ -1,0 +1,58 @@
+def reverse(a,s,e):
+	while s<=e:
+		a[s],a[e]=a[e],a[s]
+		s+=1
+		e-=1
+	return a
+
+
+
+def reverse_array_in_group(a,k):
+	#k is the size of group
+	
+	# if there is only 1 or 0 element present in array
+	length_of_an_array=len(a) #time complexity is o(n)
+	
+	if length_of_an_array<=1 or k==1:
+		return a
+	
+	# ill pointing my starring point at index 0
+	s=0
+	# consider the group size to be 2 so k=2 so tje end should be at index 1 thats why k-1
+	e=s+k-1
+	while e<length_of_an_array:#O(len(a)/k)
+		a=reverse(a,s,e)  # O(k/2)
+	#prwint(a,s,e)
+		s+=k
+		e=s+k-1
+	#print(a,s,e,length_of_an_array)
+	if s<length_of_an_array and e>length_of_an_array-1:
+		a=reverse(a,s,length_of_an_array-1)
+	#	print(a,s,e)
+	return a	
+		
+#print(reverse_array_in_group([1,2,3,4,5],2))
+print(reverse_array_in_group([1,2,3,4,5,6],2))
+
+
+# wo the actual time complexity is O(n)
+"""
+what happend in above query is that   first iteration 
+s= 0
+e=2
+which is fine both start and end are less than  len(a) so tha reverse function is called 
+
+	in 2nd iteration 
+	s=3
+	e=5 
+	
+the last two element willvremain as it is without reversing
+so to tackle that we will do 
+
+before returnin will chech whetaher
+ s<len(a)
+ and e> len(a)
+ 
+ this means the remainf element is less than k so to reverse that as well 
+ """
+
