@@ -1,0 +1,6 @@
+def kthrotation(a,k):
+	if k<0:
+		return a
+	return a[-k::]+a[:len(a)-k:1]
+a=[0,1,2,3,4]
+print(a,kthrotation(a,2))
