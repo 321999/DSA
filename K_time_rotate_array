@@ -4,3 +4,21 @@ def kthrotation(a,k):
 	return a[-k::]+a[:len(a)-k:1]
 a=[0,1,2,3,4]
 print(a,kthrotation(a,2))
+
+
+def reverse(a,s,e):
+	while s<=e:
+		a[s],a[e]=a[e],a[s]
+		s+=1
+		e-=1
+	return a
+
+
+def k_throtation(a,k):
+	n=len(a)
+	a=reverse(a,0,n-1) #O(n/2)
+#	print(a)
+	a=reverse(a,0,k-1) #O(k-1/2)
+#	print(a)
+	a=reverse(a,k,n-1) #O(n-k/2)
+	return a
