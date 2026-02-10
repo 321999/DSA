@@ -1,0 +1,24 @@
+def first_pivot(a):
+	#considering my fir
+#	ppst pivot is at the index
+	s=0
+	for i in range(1,len(a)):
+		if a[i-1]>a[i]:
+			pass
+		else:
+			s=i
+#	print("start ",s)
+	return s-1
+def afterthis(s,a):
+	g=a[s]
+	
+	for i in range(s+1,len(a)):
+		if a[i]>a[s]:
+		#	print("startgghhh ",g)
+			g=i
+	a[g],a[s]=a[s],a[g]
+	return s,g,a
+
+a=[1, 3, 5, 4, 2]	
+print(afterthis(first_pivot(a),a))		
+print(first_pivot([1, 3, 5, 4, 2])
