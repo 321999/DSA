@@ -1,0 +1,39 @@
+class Node:
+	def __init__(s,d):
+		s.d=d
+		s.p=None
+		s.n=None
+
+#i=1
+#head=None
+#while i<5:
+#	n=Node(i)
+#	n.p=head
+#	if head !=None:
+#		head.n=n
+#	head=n
+#	i+=1
+
+#print(head.d)
+class S:
+	def __init__(s):
+		s.head=None
+	
+	def push(s,d):
+		n=Node(d)
+		n.p=s.head
+		if s.head !=None:
+			s.head.n=n
+		s.head=n
+	
+	def pop(s):
+		s.head=s.head.p
+		
+	
+s=S()
+s.push(1)
+s.push(2)
+s.push(3)
+print("print after push",s.head.d)
+s.pop()
+print("print after pop",s.head.d)
