@@ -1,0 +1,84 @@
+class N:
+	def __init__(s,d):
+		s.d=d
+		s.p=None
+		s.n=None
+
+class S:
+	def __init__(s):
+		s.head=None
+	
+	def push(s,d):
+		n=N(d)
+		n.p=s.head
+		if s.head is not None:
+			s.head.n=n
+		s.head=n
+	
+	# to know where i am 
+	def seek(s):
+		return s.head.d
+	
+	def pop(s):
+		s.head=s.head.p
+		
+s=S()
+
+s.push(1)
+s.push(2)
+s.push(3)
+print(s.seek())
+s.pop()
+
+print("after pop ",s.seek())
+s.push(3)
+print(s.seek())
+s.pop()
+
+print("after pop ",s.seek())
+#s.seek()
+
+
+#NODE COME FIRST SHOILD DELETE FIRST 
+class Q:
+	def __init__(s): #consider at very fitdt step
+		s.f=None # fr9m here deletion is done 
+		s.r=None # from here insertion is to be done 
+		s.h=None
+		
+	
+	def p(s,d):
+		q=N(d)
+		q.p=s.h
+		if s.h is not None:
+			s.h.n=q
+		if s.h is None:
+			s.f=q
+			
+		s.r=q
+		s.h=q
+	
+	def pop(s):
+		s.f=s.f.n
+		
+	#	q=N(d)
+#		q.p=s.h
+#		if s.h is not None:
+#			s.h.n=q
+#		if s.h is None:
+#			s.f=q
+#			
+#		s.r=q
+#		s.h=q
+	
+	def peek(s):
+		return s.f.d,s.r.d
+print("start from queue")
+q=Q()
+q.p(1)
+q.p(2)
+q.p(3)
+q.pop()
+
+print("front and the rear is at ",q.peek())
+
